@@ -1,5 +1,6 @@
-from pages.base_page import BasePage
+import time
 
+from pages.base_page import BasePage
 
 class Dashboard(BasePage):
     scouts_panel_label_xpath = "// h6[text() = 'Scouts Panel']"
@@ -17,4 +18,15 @@ class Dashboard(BasePage):
     matches_count_bar_xpath = "//div[text()='Matches count']"
     reports_count_bar_xpath = "//div[text()='Reports count']"
     events_count_bar_xpath = "//div[text()='Events count']"
-    pass
+    expected_title = 'Scouts panel'
+    dashboard_url = 'https://scouts-test.futbolkolektyw.pl/'
+    add_player_button_xpath = "//*[text()='Add player']"
+
+    def click_on_the_add_player(self):
+        self.click_on_the_element(self.add_player_button_xpath)
+
+    def title_of_page(self):
+        time.sleep(5)
+        assert self.get_page_title(self.dashboard_url) == self.expected_title
+
+
