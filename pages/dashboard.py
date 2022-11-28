@@ -1,6 +1,7 @@
-import time
+from selenium.webdriver.chrome.webdriver import WebDriver
 
 from pages.base_page import BasePage
+
 
 class Dashboard(BasePage):
     scouts_panel_label_xpath = "// h6[text() = 'Scouts Panel']"
@@ -21,12 +22,24 @@ class Dashboard(BasePage):
     expected_title = 'Scouts panel'
     dashboard_url = 'https://scouts-test.futbolkolektyw.pl/'
     add_player_button_xpath = "//*[text()='Add player']"
+    players_button_xpath = "//*[text() = 'Players']"
+    search_field_xpath = "//*[@aria-label = 'search']"
 
     def click_on_the_add_player(self):
         self.click_on_the_element(self.add_player_button_xpath)
 
     def title_of_page(self):
-        time.sleep(5)
-        assert self.get_page_title(self.dashboard_url) == self.expected_title
+        pass
 
+    def click_on_the_players_button(self):
+        self.click_on_the_element(self.players_button_xpath)
 
+    def type_in_search_field(self, search_field):
+        self.field_send_keys(self.search_field_xpath, search_field)
+
+    def __init__(self, driver: WebDriver):
+        super().__init__(driver)
+        self.SendKeys = 'Enter'
+
+    def click_on_the_sign_out_button(self):
+        self.click_on_the_element(self.sign_out_button_xpath)

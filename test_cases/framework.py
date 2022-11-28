@@ -21,6 +21,7 @@ class Test(unittest.TestCase):
     def test_print_nice_words(self):
         print("WELL DONE!!!!!!!!!")
 
+
 class TestMediumPage(unittest.TestCase):
     @classmethod
     def setUp(self):
@@ -38,7 +39,7 @@ class TestMediumPage(unittest.TestCase):
     def get_page_title(self, url):
         self.driver.get(url)
         return self.driver.title
+
     @classmethod
     def tearDown(self):
         self.driver.quit()
-
