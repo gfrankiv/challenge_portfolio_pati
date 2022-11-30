@@ -3,13 +3,13 @@ import unittest
 import time
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
-from pages.ADD_PLAYER_PAGE import AddPlayer
 from pages.dashboard import Dashboard
 from pages.login_page import LoginPage
+from pages.add_player_page import AddPlayer
 from utils.settings import DRIVER_PATH, IMPLICITLY_WAIT
 
 
-class TestAddANewPlayer(unittest.TestCase):
+class TestAddPlayer(unittest.TestCase):
     s = Service(DRIVER_PATH)
     driver = None
 
@@ -44,3 +44,5 @@ class TestAddANewPlayer(unittest.TestCase):
     @classmethod
     def tearDown(self):
         self.driver.quit()
+
+

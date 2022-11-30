@@ -1,5 +1,4 @@
 from selenium.webdriver.chrome.webdriver import WebDriver
-
 from pages.base_page import BasePage
 
 
@@ -8,7 +7,7 @@ class Dashboard(BasePage):
     main_page_menu_button_xpath = "//span[text()='Main page']"
     players_menu_button_xpath = "// span[text() = 'Players']"
     language_button_xpath = "//span[text()='Polski']"
-    sign_out_button_xpath = "//span[text()='Sign out']"
+    sign_out_button_xpath = "//*[@id='__next']/div[1]/div/div/div/ul[2]/div[2]/div[2]/span"
     players_count_label_xpath = "//div[text()='Players count']"
     logo_scouts_panel_xpath = "//div[contains(@title, 'Logo Scouts Panel')]"
     add_player_xpath = "//span[text()= 'Add player']"
@@ -23,13 +22,10 @@ class Dashboard(BasePage):
     dashboard_url = 'https://scouts-test.futbolkolektyw.pl/'
     add_player_button_xpath = "//*[text()='Add player']"
     players_button_xpath = "//*[text() = 'Players']"
-    search_field_xpath = "//*[@aria-label = 'search']"
+    search_field_xpath = "//*[@aria-label='search']/../*[@value]"
 
     def click_on_the_add_player(self):
         self.click_on_the_element(self.add_player_button_xpath)
-
-    def title_of_page(self):
-        pass
 
     def click_on_the_players_button(self):
         self.click_on_the_element(self.players_button_xpath)
@@ -43,3 +39,6 @@ class Dashboard(BasePage):
 
     def click_on_the_sign_out_button(self):
         self.click_on_the_element(self.sign_out_button_xpath)
+
+    def title_of_page(self):
+        pass

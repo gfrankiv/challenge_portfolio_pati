@@ -3,7 +3,7 @@ import unittest
 import time
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
-from pages.ADD_PLAYER_PAGE import AddPlayer
+from add_player_page import AddPlayer
 from pages.dashboard import Dashboard
 from pages.login_page import LoginPage
 from utils.settings import DRIVER_PATH, IMPLICITLY_WAIT
@@ -23,7 +23,7 @@ class TestAddANewPlayerInvalid(unittest.TestCase):
         self.driver.fullscreen_window()
         self.driver.implicitly_wait(IMPLICITLY_WAIT)
 
-    def test_add_a_new_player(self):
+    def test_add_a_new_player_invalid(self):
         user_login = LoginPage(self.driver)
         user_login.title_of_page()
         user_login.type_in_email('user04@getnada.com')
